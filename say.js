@@ -5,7 +5,7 @@ var exec = require('child_process').exec;
 var cmdStr = 'fortune';
 
 // 转换为语音文件的函数
-var transfer = require('./tencent_openai/transformTextIntoVoice.js').transformTextIntoVoice
+// var transfer = require('./tencent_openai/transformTextIntoVoice.js').transformTextIntoVoice
 
 // 控制 ev3 的函数 
 var ev3dev = require('ev3dev-lang');
