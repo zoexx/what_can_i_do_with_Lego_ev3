@@ -1,0 +1,11 @@
+{
+  "name": "what_can_i_do_with_Lego_ev3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:zoexx/what_can_i_do_with_Lego_ev3.git",
+  "author": "zoeying <296852455@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ev3dev-lang": "^1.0.0"
+  }
+}
