@@ -16,7 +16,7 @@ setInterval(function() {
     var touchValue =  touchSensor.getValue(0);
     console.log( touchValue )
     if ( touchValue == 1 ){
-        exec( "sh ../saySomething.sh", 
+        exec( "sh ../saySomethings.sh", 
             { encoding: 'utf8' } ,
             function( err , stdout , stderr ){
         
