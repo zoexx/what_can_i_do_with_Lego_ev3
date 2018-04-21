@@ -4,7 +4,7 @@ var exec = require('child_process').exec;
 // 控制 ev3 的函数 
 var ev3dev = require('ev3dev-lang');
 
-var touchSensor = new ev3dev.touchSensor();
+var touchSensor = new ev3dev.TouchSensor();
 
 if(!touchSensor.connected) {
     console.error("No touchSensor.");
