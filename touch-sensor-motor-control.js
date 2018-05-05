@@ -1,4 +1,4 @@
-var ev3dev = require('../bin/index.js');
+var ev3dev = require('ev3dev-lang');
 
 var touchSensor = new ev3dev.TouchSensor();
 if(!touchSensor.connected) {

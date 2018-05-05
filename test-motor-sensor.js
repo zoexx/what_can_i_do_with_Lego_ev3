@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
-var ev3dev = require('../bin/index.js');
-
+var ev3dev = require('ev3dev-lang');
 // Run motor
 console.log('Motor --------------');
 // Pick the first connected motor

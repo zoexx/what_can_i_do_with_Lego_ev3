@@ -1,4 +1,4 @@
-var ev3dev = require('../bin/index.js');
+var ev3dev = require('ev3dev-lang');
 
 var motor = new ev3dev.Motor(ev3dev.OUTPUT_A);
 if(!motor.connected) {

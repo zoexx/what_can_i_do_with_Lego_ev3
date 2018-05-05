@@ -1,4 +1,4 @@
-var ev3dev = require('../bin/index.js');
+var ev3dev = require('ev3dev-lang');
 
 var greenANSI = "\033[42m";
 var redANSI = "\033[41m";

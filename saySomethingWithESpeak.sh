@@ -1,2 +1,2 @@
-amixer set Playback,0 50% 
-fortune | espeak --stdout | aplay
+amixer set Playback,0 100% 
+fortune | espeak -s 80 --stdout | aplay

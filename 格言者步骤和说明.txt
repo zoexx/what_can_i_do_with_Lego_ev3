@@ -1,0 +1,154 @@
+1 下载linux 系统镜像 和 写入系统镜像的程序 etcher
+链接: https://pan.baidu.com/s/1QF1jev4R4cu0Ylt5Rw2asg 密码: 8bxx
+
+2 将SD卡通过读卡器 连接上电脑
+
+3 运行 etcher 选择 系统镜像 ，写入到SD卡
+
+4 SD卡 装在EV3上面
+
+5 给EV3 安装网卡
+
+6 开机 配置wifi
+
+7 用电脑或者ipad连接上ev3
+
+ --  ssh robot@ip地址比如 192.168.1.209
+ --  yes
+ --  password: maker
+ --  git clone https://github.com/zoexx/what_can_i_do_with_Lego_ev3.git
+ --  cd what_can_i_do_with_Lego_ev3
+
+
+ 使用扬声器 speaker
+ 播放小星星
+ -- sh sing.sh
+ 查看 saySomethingWithESpeak.sh
+
+ -- cat saySomethingWithESpeak.sh
+ amixer set Playback,0 50%
+ fortune | espeak --stdout | aplay
+
+
+ 这个指令集中 
+
+    第一句 amixer set Playback,0 50% 
+          将ev3的音量设置为50% 
+          
+    第二句 fortune | espeak --stdout | aplay
+    	  是使用fortune生成一句随机的格言，将生成的格言交给 espeak 转换成音频文件（又称为语音合成技术 TTS，Text to Speech），再将音频交给aplay播放出来
+    	  "|" 分隔符 是可以让数据像流水一样 从第一个fortune经过espeak的处理到最后交给aplay
+
+ 使用fortune得到一句随机的格言
+ -- fortune
+
+ 以下指令请在 SoundFileCache 目录下测试
+
+ 使用espeak生成音频
+ -- espeak "hello hello hello" -s 80 -w hello.wav
+ "-w" 中的w是write 写(文件) 的意思
+ "-s" 中的s是speed 速度 的意思
+ 以上指令意思是用每分钟80词的语速合成“hello hello hello”并保存在hello.wav文件中
+
+ 使用ls(list 列表 列出)可以看到这个文件
+ -- ls
+
+ 使用aplay播放hello.wav
+ -- aplay hello.wav
+
+
+ -----------------------------------------------------------
+ ✨✨✨✨✨✨ ✨✨✨✨✨✨ ✨✨✨✨✨✨ ✨✨✨✨✨✨
+ ✨✨✨✨✨✨ ✨✨✨✨✨✨ ✨✨✨✨✨✨ ✨✨✨✨✨✨
+ -----------------------------------------------------------
+ 以下是扩展部分
+ fortune不仅仅有英文格言还有许多人为它制作了中文版，唐诗宋词版，歌词版等等
+ espeak 不仅能合成英文，还可以合成中文，粤语，以及许多其他国家的语言，以下是现有的语言和VoiceName
+
+ Pty Language Age/Gender VoiceName          File          Other Languages
+ 5  af             M  afrikaans            other/af
+ 5  an             M  aragonese            europe/an
+ 5  bg             -  bulgarian            europe/bg
+ 5  bs             M  bosnian              europe/bs
+ 5  ca             M  catalan              europe/ca
+ 5  cs             M  czech                europe/cs
+ 5  cy             M  welsh                europe/cy
+ 5  da             M  danish               europe/da
+ 5  de             M  german               de
+ 5  el             M  greek                europe/el
+ 5  en             M  default              default
+ 2  en-gb          M  english              en            (en-uk 2)(en 2)
+ 5  en-sc          M  en-scottish          other/en-sc   (en 4)
+ 5  en-uk-north    M  english-north        other/en-n    (en-uk 3)(en 5)
+ 5  en-uk-rp       M  english_rp           other/en-rp   (en-uk 4)(en 5)
+ 5  en-uk-wmids    M  english_wmids        other/en-wm   (en-uk 9)(en 9)
+ 2  en-us          M  english-us           en-us         (en-r 5)(en 3)
+ 5  en-wi          M  en-westindies        other/en-wi   (en-uk 4)(en 10)
+ 5  eo             M  esperanto            other/eo
+ 5  es             M  spanish              europe/es
+ 5  es-la          M  spanish-latin-am     es-la         (es-mx 6)(es 6)
+ 5  et             -  estonian             europe/et
+ 5  fa             -  persian              asia/fa
+ 5  fa-pin         -  persian-pinglish     asia/fa-pin
+ 5  fi             M  finnish              europe/fi
+ 5  fr-be          M  french-Belgium       europe/fr-be  (fr 8)
+ 5  fr-fr          M  french               fr            (fr 5)
+ 5  ga             -  irish-gaeilge        europe/ga
+ 5  grc            M  greek-ancient        other/grc
+ 5  hi             M  hindi                asia/hi
+ 5  hr             M  croatian             europe/hr     (hbs 5)
+ 5  hu             M  hungarian            europe/hu
+ 5  hy             M  armenian             asia/hy
+ 5  hy-west        M  armenian-west        asia/hy-west  (hy 8)
+ 5  id             M  indonesian           asia/id
+ 5  is             M  icelandic            europe/is
+ 5  it             M  italian              europe/it
+ 5  jbo            -  lojban               other/jbo
+ 5  ka             -  georgian             asia/ka
+ 5  kn             -  kannada              asia/kn
+ 5  ku             M  kurdish              asia/ku
+ 5  la             M  latin                other/la
+ 5  lfn            M  lingua_franca_nova   other/lfn
+ 5  lt             M  lithuanian           europe/lt
+ 5  lv             M  latvian              europe/lv
+ 5  mk             M  macedonian           europe/mk
+ 5  ml             M  malayalam            asia/ml
+ 5  ms             M  malay                asia/ms
+ 5  ne             M  nepali               asia/ne
+ 5  nl             M  dutch                europe/nl
+ 5  no             M  norwegian            europe/no     (nb 5)
+
+ 以下是可以尝试组合使用的选项，例如:
+
+ -- espeak -a 150 -p 60 -s 80 -v en-scottish "Hello , How is today?" --stdout | aplay
+
+ -a <integer>
+	   Amplitude, 0 to 200, default is 100
+	   振幅
+
+-g <integer>
+	   Word gap. Pause between words, units of 10mS at the default speed
+	   单词之间的停顿
+
+-k <integer>
+	   Indicate capital letters with: 1=sound, 2=the word "capitals",
+	   higher values indicate a pitch音高 increase (try -k20).
+
+-l <integer>
+	   Line length. If not zero (which is the default), consider
+	   lines less than this length as end-of-clause
+	   每一句的最小长度
+
+-p <integer>
+	   Pitch adjustment, 0 to 99, default is 50
+	   音高
+
+-s <integer>
+	   Speed in words per minute, 80 to 450, default is 175
+	   语速
+
+-v <voice name>
+	   Use voice file of this name from espeak-data/voices
+	   指定声音
+
+ 
