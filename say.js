@@ -27,7 +27,7 @@ function saysomething() {
     doExec( "fortune" , function( words ){
         console.log( words );
         // display or print the words
-        doExec( `espeak "${ words }" -s 100 --stdout | aplay` )
+        doExec( 'espeak "'+words+'" -s 100 --stdout | aplay' )
 
     })
 }
