@@ -27,7 +27,9 @@ function saysomething() {
     doExec( "fortune" , function( words ){
         console.log( words );
         // display or print the words
-        doExec( 'espeak "'+words+'" -s 100 --stdout | aplay' )
+        doExec( 'espeak "'+words+'" -s 100 --stdout | aplay' , function(){
+            console.log("Try to press the touch sensor ...")
+        })
 
     })
 }
@@ -37,7 +39,7 @@ function doExec( command , callback ) {
     exec( command , { encoding:'utf8'}, function( err , stdout , stder ){
         // 如果出错
         if(err) {
-            console.log('exec err:'+stderr);
+            console.log('exec err:'+stder);
         } else {
             callback && callback( stdout )
         }
